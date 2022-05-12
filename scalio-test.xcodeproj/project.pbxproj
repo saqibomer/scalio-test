@@ -34,6 +34,7 @@
 		AA14D7C2282DB41C0010DDB6 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */; };
 		AA14D7C8282DC5EF0010DDB6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA14D7C7282DC5EF0010DDB6 /* SDWebImage */; };
 		AA14D7CB282DCC940010DDB6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */; };
+		AAE4099D282DD0C100F270E4 /* UsersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4099C282DD0C100F270E4 /* UsersViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		AA14D7BF282DB41C0010DDB6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		AAE4099C282DD0C100F270E4 /* UsersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		AA0DD2FB282D311300AA9251 /* scalio-testTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA14D7CE282DD04E0010DDB6 /* ViewModelTests */,
 				AA0DD32A282D3FA000AA9251 /* ModelTests */,
 				AA0DD2FC282D311300AA9251 /* scalio_testTests.swift */,
 			);
@@ -254,6 +257,14 @@
 				AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA14D7CE282DD04E0010DDB6 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4099C282DD0C100F270E4 /* UsersViewModelTest.swift */,
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4099D282DD0C100F270E4 /* UsersViewModelTest.swift in Sources */,
 				AA0DD2FD282D311300AA9251 /* scalio_testTests.swift in Sources */,
 				AA0DD32C282D3FC400AA9251 /* UserResponseTest.swift in Sources */,
 			);

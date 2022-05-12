@@ -20,12 +20,14 @@ class UserResponseTest: XCTestCase {
             {
               "login": "saqib",
               "id": 123993,
-              "avatar_url": "https://avatars.githubusercontent.com/u/123993?v=4"
+              "avatar_url": "https://avatars.githubusercontent.com/u/123993?v=4",
+              "url": "https://api.github.com/users/saqib"
             },
             {
               "login": "saqibameen",
               "id": 31374163,
-              "avatar_url": "https://avatars.githubusercontent.com/u/31374163?v=4"
+              "avatar_url": "https://avatars.githubusercontent.com/u/31374163?v=4",
+              "url": "https://api.github.com/users/saqib"
             }
           ]
         }
@@ -42,8 +44,8 @@ class UserResponseTest: XCTestCase {
     
     func testEncodingModel() throws {
         let userResponse = UsersResponse(totalCount: 5, inCompleteResult: false, users: [
-            .init(login: "saqib", id: 123993, avatarUrl: "https://avatars.githubusercontent.com/u/123993?v=4"),
-            .init(login: "saqibameen", id: 31374163, avatarUrl: "https://avatars.githubusercontent.com/u/31374163?v=4")
+            .init(login: "saqib", id: 123993, avatarUrl: "https://avatars.githubusercontent.com/u/123993?v=4", profileUrl: "https://api.github.com/users/saqib"),
+            .init(login: "saqibameen", id: 31374163, avatarUrl: "https://api.github.com/users/saqib" , profileUrl: "https://api.github.com/users/saqib")
             
         ])
         
