@@ -9,9 +9,9 @@ import Foundation
 
 struct UserCodable: Codable {
     
-    let login: String?
-    let id: Int?
-    let avatarUrl: String?
+    var login: String
+    var id: Int
+    var avatarUrl: String
     
     
     private enum CodingKeys: String, CodingKey {

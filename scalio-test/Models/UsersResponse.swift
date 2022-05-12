@@ -9,14 +9,14 @@ import Foundation
 
 struct UsersResponse: Codable {
     
-    let totalCount: Int?
-    let inCompleteResult: Bool?
-    let users: [UserCodable]?
+    var totalCount: Int
+    var inCompleteResult: Bool
+    var users: [UserCodable]
     
     
     private enum CodingKeys: String, CodingKey {
-        case totalCount
-        case inCompleteResult
+        case totalCount = "total_count"
+        case inCompleteResult = "incomplete_results"
         case users = "items"
     }
 }

@@ -23,6 +23,7 @@
 		AA0DD322282D3A1A00AA9251 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD321282D3A1A00AA9251 /* AppCoordinator.swift */; };
 		AA0DD327282D3D7D00AA9251 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD326282D3D7D00AA9251 /* UsersResponse.swift */; };
 		AA0DD329282D3E7E00AA9251 /* UserCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD328282D3E7E00AA9251 /* UserCodable.swift */; };
+		AA0DD32C282D3FC400AA9251 /* UserResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD32B282D3FC400AA9251 /* UserResponseTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		AA0DD321282D3A1A00AA9251 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AA0DD326282D3D7D00AA9251 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
 		AA0DD328282D3E7E00AA9251 /* UserCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCodable.swift; sourceTree = "<group>"; };
+		AA0DD32B282D3FC400AA9251 /* UserResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		AA0DD2FB282D311300AA9251 /* scalio-testTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA0DD32A282D3FA000AA9251 /* ModelTests */,
 				AA0DD2FC282D311300AA9251 /* scalio_testTests.swift */,
 			);
 			path = "scalio-testTests";
@@ -167,6 +170,14 @@
 				AA0DD328282D3E7E00AA9251 /* UserCodable.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AA0DD32A282D3FA000AA9251 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA0DD32B282D3FC400AA9251 /* UserResponseTest.swift */,
+			);
+			path = ModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0DD2FD282D311300AA9251 /* scalio_testTests.swift in Sources */,
+				AA0DD32C282D3FC400AA9251 /* UserResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
