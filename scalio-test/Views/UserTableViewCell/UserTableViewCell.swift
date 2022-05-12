@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class UserTableViewCell: UITableViewCell {
     
     static var Identifier = "UserTableViewCell"
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: SDAnimatedImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
     
@@ -19,13 +20,18 @@ class UserTableViewCell: UITableViewCell {
             guard let user = user else { return }
             nameLabel.text = user.login
             urlLabel.text = user.login
-            //          avatarImageView.image = UIImage(named: "\(superStar.avatar)")
+            guard let url = URL(string: user.avatarUrl) else {return}
+            avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            avatarImageView.sd_imageIndicator?.startAnimatingIndicator()
+            avatarImageView.sd_imageTransition = .fade
+            avatarImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo.circle"))
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        avatarImageView.layer.cornerRadius = 10
+        avatarImageView.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -32,6 +32,7 @@
 		AA0DD33D282D4F3700AA9251 /* UserListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD33C282D4F3700AA9251 /* UserListItemViewModel.swift */; };
 		AA14D7C1282DB41C0010DDB6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14D7BF282DB41C0010DDB6 /* UserTableViewCell.swift */; };
 		AA14D7C2282DB41C0010DDB6 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */; };
+		AA14D7C8282DC5EF0010DDB6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA14D7C7282DC5EF0010DDB6 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 				AA0DD31E282D391400AA9251 /* RxRelay in Frameworks */,
 				AA0DD335282D475E00AA9251 /* RxMoya in Frameworks */,
 				AA0DD31C282D391400AA9251 /* RxCocoa in Frameworks */,
+				AA14D7C8282DC5EF0010DDB6 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +266,7 @@
 				AA0DD31D282D391400AA9251 /* RxRelay */,
 				AA0DD31F282D391400AA9251 /* RxSwift */,
 				AA0DD334282D475E00AA9251 /* RxMoya */,
+				AA14D7C7282DC5EF0010DDB6 /* SDWebImage */,
 			);
 			productName = "scalio-test";
 			productReference = AA0DD2DF282D311000AA9251 /* scalio-test.app */;
@@ -340,6 +343,7 @@
 			packageReferences = (
 				AA0DD31A282D391400AA9251 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				AA0DD333282D475E00AA9251 /* XCRemoteSwiftPackageReference "Moya" */,
+				AA14D7C6282DC5EF0010DDB6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = AA0DD2E0282D311000AA9251 /* Products */;
 			projectDirPath = "";
@@ -758,6 +762,14 @@
 				kind = branch;
 			};
 		};
+		AA14D7C6282DC5EF0010DDB6 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -780,6 +792,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA0DD333282D475E00AA9251 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		AA14D7C7282DC5EF0010DDB6 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA14D7C6282DC5EF0010DDB6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
