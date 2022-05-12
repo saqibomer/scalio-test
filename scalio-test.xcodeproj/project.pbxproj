@@ -26,6 +26,7 @@
 		AA0DD32C282D3FC400AA9251 /* UserResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD32B282D3FC400AA9251 /* UserResponseTest.swift */; };
 		AA0DD32F282D44F200AA9251 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD32E282D44F200AA9251 /* UserService.swift */; };
 		AA0DD332282D459F00AA9251 /* ScalioError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD331282D459F00AA9251 /* ScalioError.swift */; };
+		AA0DD335282D475E00AA9251 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = AA0DD334282D475E00AA9251 /* RxMoya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 			files = (
 				AA0DD320282D391400AA9251 /* RxSwift in Frameworks */,
 				AA0DD31E282D391400AA9251 /* RxRelay in Frameworks */,
+				AA0DD335282D475E00AA9251 /* RxMoya in Frameworks */,
 				AA0DD31C282D391400AA9251 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +224,7 @@
 				AA0DD31B282D391400AA9251 /* RxCocoa */,
 				AA0DD31D282D391400AA9251 /* RxRelay */,
 				AA0DD31F282D391400AA9251 /* RxSwift */,
+				AA0DD334282D475E00AA9251 /* RxMoya */,
 			);
 			productName = "scalio-test";
 			productReference = AA0DD2DF282D311000AA9251 /* scalio-test.app */;
@@ -297,6 +300,7 @@
 			mainGroup = AA0DD2D6282D311000AA9251;
 			packageReferences = (
 				AA0DD31A282D391400AA9251 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				AA0DD333282D475E00AA9251 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = AA0DD2E0282D311000AA9251 /* Products */;
 			projectDirPath = "";
@@ -702,6 +706,14 @@
 				kind = branch;
 			};
 		};
+		AA0DD333282D475E00AA9251 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -719,6 +731,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA0DD31A282D391400AA9251 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		AA0DD334282D475E00AA9251 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA0DD333282D475E00AA9251 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 
