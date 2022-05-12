@@ -10,18 +10,18 @@ import RxSwift
 
 
 protocol UserServiceProtocol {
-    func getUsers(searchString: String) -> Observable<UsersResponse>
+//    func getUsers(searchString: String) -> Observable<UsersResponse>
     
 }
 
 final class UserService: UserServiceProtocol{
     
     
-    func getUsers(searchString: String) -> Observable<UsersResponse> {
-        return Observable.create { observer -> Disposable in
-            
-        }
-    }
+//    func getUsers(searchString: String) -> Observable<UsersResponse> {
+//        return Observable.create { observer -> Disposable in
+//            
+//        }
+//    }
     
         
 }

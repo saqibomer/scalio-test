@@ -27,6 +27,7 @@
 		AA0DD32F282D44F200AA9251 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD32E282D44F200AA9251 /* UserService.swift */; };
 		AA0DD332282D459F00AA9251 /* ScalioError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD331282D459F00AA9251 /* ScalioError.swift */; };
 		AA0DD335282D475E00AA9251 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = AA0DD334282D475E00AA9251 /* RxMoya */; };
+		AA0DD338282D47F800AA9251 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0DD337282D47F800AA9251 /* GithubService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		AA0DD32B282D3FC400AA9251 /* UserResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseTest.swift; sourceTree = "<group>"; };
 		AA0DD32E282D44F200AA9251 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		AA0DD331282D459F00AA9251 /* ScalioError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalioError.swift; sourceTree = "<group>"; };
+		AA0DD337282D47F800AA9251 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		AA0DD2E1282D311000AA9251 /* scalio-test */ = {
 			isa = PBXGroup;
 			children = (
+				AA0DD336282D47DB00AA9251 /* Network */,
 				AA0DD330282D458000AA9251 /* Errors */,
 				AA0DD32D282D44E500AA9251 /* Services */,
 				AA0DD325282D3D6E00AA9251 /* Models */,
@@ -202,6 +205,14 @@
 				AA0DD331282D459F00AA9251 /* ScalioError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		AA0DD336282D47DB00AA9251 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA0DD337282D47F800AA9251 /* GithubService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0DD338282D47F800AA9251 /* GithubService.swift in Sources */,
 				AA0DD32F282D44F200AA9251 /* UserService.swift in Sources */,
 				AA0DD2E7282D311000AA9251 /* ViewController.swift in Sources */,
 				AA0DD329282D3E7E00AA9251 /* UserCodable.swift in Sources */,
