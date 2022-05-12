@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Github users"
         configureTableView()
         guard let vm = viewModel else {return}
         vm.fetchUsersViewModel().observe(on: MainScheduler.instance).bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
