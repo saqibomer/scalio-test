@@ -19,7 +19,7 @@ class UserTableViewCell: UITableViewCell {
         didSet {
             guard let user = user else { return }
             nameLabel.text = user.login
-            urlLabel.text = user.login
+            urlLabel.text = user.profileUrl
             guard let url = URL(string: user.avatarUrl) else {return}
             avatarImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             avatarImageView.sd_imageIndicator?.startAnimatingIndicator()
