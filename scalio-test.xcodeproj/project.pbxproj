@@ -33,6 +33,7 @@
 		AA14D7C1282DB41C0010DDB6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14D7BF282DB41C0010DDB6 /* UserTableViewCell.swift */; };
 		AA14D7C2282DB41C0010DDB6 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */; };
 		AA14D7C8282DC5EF0010DDB6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA14D7C7282DC5EF0010DDB6 /* SDWebImage */; };
+		AA14D7CB282DCC940010DDB6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		AA0DD33C282D4F3700AA9251 /* UserListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemViewModel.swift; sourceTree = "<group>"; };
 		AA14D7BF282DB41C0010DDB6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		AA0DD2E1282D311000AA9251 /* scalio-test */ = {
 			isa = PBXGroup;
 			children = (
+				AA14D7C9282DCC840010DDB6 /* Extensions */,
 				AA0DD336282D47DB00AA9251 /* Network */,
 				AA0DD330282D458000AA9251 /* Errors */,
 				AA0DD32D282D44E500AA9251 /* Services */,
@@ -243,6 +246,14 @@
 				AA14D7C0282DB41C0010DDB6 /* UserTableViewCell.xib */,
 			);
 			path = UserTableViewCell;
+			sourceTree = "<group>";
+		};
+		AA14D7C9282DCC840010DDB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA14D7CA282DCC940010DDB6 /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 				AA0DD33D282D4F3700AA9251 /* UserListItemViewModel.swift in Sources */,
 				AA0DD329282D3E7E00AA9251 /* UserCodable.swift in Sources */,
 				AA0DD2E3282D311000AA9251 /* AppDelegate.swift in Sources */,
+				AA14D7CB282DCC940010DDB6 /* String+Extensions.swift in Sources */,
 				AA0DD322282D3A1A00AA9251 /* AppCoordinator.swift in Sources */,
 				AA0DD332282D459F00AA9251 /* ScalioError.swift in Sources */,
 				AA0DD2ED282D311000AA9251 /* scalio_test.xcdatamodeld in Sources */,

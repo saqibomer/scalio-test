@@ -18,9 +18,9 @@ final class UsersViewModel {
         self.userService = userService
     }
     
-    func fetchUsersViewModel() -> Observable<[UserListItemViewModel]> {
+    func fetchUsersViewModel(query: String) -> Observable<[UserListItemViewModel]> {
         
-        return userService.getUsers(searchString: "saqib")
+        return userService.getUsers(searchString: query)
             .map { $0.users.map {
                 UserListItemViewModel(user: $0)
                 

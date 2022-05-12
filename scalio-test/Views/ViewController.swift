@@ -12,6 +12,7 @@ import RxCocoa
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private var viewModel: UsersViewModel!
     let disposeBag = DisposeBag()
@@ -26,10 +27,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Github users"
         configureTableView()
-        guard let vm = viewModel else {return}
-        vm.fetchUsersViewModel().observe(on: MainScheduler.instance).bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
-            cell.user = viewmodel.user
-        }.disposed(by: disposeBag)
+        configureSearchBar()
         
         
     }
@@ -42,6 +40,27 @@ class ViewController: UIViewController {
     
     private func registerCell() {
         self.tableView.register(UINib(nibName: UserTableViewCell.Identifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.Identifier)
+    }
+    
+    private func configureSearchBar() {
+        searchBar.rx.text
+            .orEmpty
+            .throttle(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe { [unowned self] (query) in
+                
+                guard let vm = viewModel else {return}
+                let queryString = query.element?.lowercased() ?? ""
+                if queryString.count > 2 {
+                    self.tableView.delegate = nil
+                    self.tableView.dataSource = nil
+                    vm.fetchUsersViewModel(query: query.element?.lowercased() ?? "").observe(on: MainScheduler.instance).bind(to: self.tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
+                        cell.user = viewmodel.user
+                    }.disposed(by: disposeBag)
+                }
+                
+                
+            }.disposed(by: disposeBag)
     }
     
     
