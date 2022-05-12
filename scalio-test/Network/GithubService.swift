@@ -8,16 +8,23 @@
 import Foundation
 import Moya
 
+
 enum GithubService {
-    case getUsers(login: String)
+    case getUsers(query: String)
 }
 
 extension GithubService: TargetType {
+    
+    var headers: [String : String]? {
+        return ["Content-type": "application/json"]
+    }
+    
     var baseURL: URL { URL(string: "https://api.github.com")! }
+    
     var path: String {
         switch self {
-        case .getUsers(let login):
-            return "/search/users/?q=\(login)"
+        case .getUsers(_):
+            return "/search/users"
         }
     }
     var method: Moya.Method {
@@ -26,13 +33,12 @@ extension GithubService: TargetType {
             return .get
         }
     }
+    
     var task: Task {
         switch self {
-        case .getUsers:
-            return .requestPlain
+        case let .getUsers(query):
+            return .requestParameters(parameters: ["q": query], encoding: URLEncoding.queryString)
         }
     }
-    var headers: [String: String]? {
-        return ["Content-type": "application/json"]
-    }
+    
 }

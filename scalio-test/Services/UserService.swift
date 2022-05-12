@@ -21,12 +21,10 @@ final class UserService: UserServiceProtocol{
         
         return Observable.create { observer -> Disposable in
             let provider = MoyaProvider<GithubService>()
-            provider.request(.getUsers(login: searchString)) { result in
+            provider.request(.getUsers(query: searchString)) { result in
                 switch result {
                 case let .success(moyaResponse):
                     let data = moyaResponse.data
-                    let statusCode = moyaResponse.statusCode
-                    print(statusCode)
                     do {
                         let userResponse = try JSONDecoder().decode(UsersResponse.self, from: data)
                         observer.onNext(userResponse)
