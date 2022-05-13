@@ -121,6 +121,7 @@
 				AA0DD2FB282D311300AA9251 /* scalio-testTests */,
 				AA0DD305282D311300AA9251 /* scalio-testUITests */,
 				AA0DD2E0282D311000AA9251 /* Products */,
+				AA607606282E4D2E0039E8E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +268,13 @@
 			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
+		AA607606282E4D2E0039E8E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +316,8 @@
 				AA0DD2FA282D311300AA9251 /* PBXTargetDependency */,
 			);
 			name = "scalio-testTests";
+			packageProductDependencies = (
+			);
 			productName = "scalio-testTests";
 			productReference = AA0DD2F8282D311300AA9251 /* scalio-testTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
