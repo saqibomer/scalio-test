@@ -6,30 +6,46 @@
 //
 
 import XCTest
+import RxCocoa
 import RxSwift
+import RxTest
+import RxBlocking
+
 @testable import scalio_test
 
 class UsersViewModelTest: XCTestCase {
+    var viewModel: UsersViewModel!
+    var scheduler: TestScheduler!
+    var disposeBag: DisposeBag!
     
+    override func setUp() {
+        viewModel = UsersViewModel()
+        scheduler = TestScheduler(initialClock: 0)
+        disposeBag = DisposeBag()
+    }
     
-
     func testInitialization() {
-        let viewModel = UsersViewModel()
+        
         XCTAssertNotNil(viewModel, "The view model should not be nil.")
     }
-
+    
     func testBinders() {
-            let scheduler = TestScheduler(initialClock: 0)
-            let source = scheduler.createColdObservable([.next(5, "hello"), .completed(10)])
-            let sink = scheduler.createObserver(Bool.self)
-            let disposeBag = DisposeBag()
+        
+        let mock = UsersViewModelMock()
+        mock.fetchedUsers = .success(mock.mockedData)
+        scheduler = TestScheduler(initialClock: 0, resolution: 0.01)
 
-            let viewModel = UsersViewModel()
-            source.bind(to: viewModel.fetchUsersViewModel(query: "saqib")).disposed(by: disposeBag)
-            viewModel.fetchUsersViewModel(query: "saqib").bind(to: sink).disposed(by: disposeBag)
-
-            scheduler.start()
-
-            XCTAssertEqual(sink.events, [.next(0, true), .next(5, false)])
-        }
+        viewModel = UsersViewModel()
+        
+        viewModel.fetchUsersViewModel(query: "saqib").subscribe { response in
+            let status: Bool
+            if response.element?.first?.user.login != nil {
+                status = true
+            } else {
+                status = false
+            }
+ 
+            XCTAssertTrue(status)
+        }.disposed(by: disposeBag)
+    }
 }
