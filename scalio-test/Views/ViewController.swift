@@ -43,26 +43,23 @@ class ViewController: UIViewController {
     }
     
     private func configureSearchBar() {
-        searchBar.rx.text
-            .orEmpty
-            .throttle(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .subscribe { [unowned self] (query) in
-                
-                guard let vm = viewModel else {return}
-                let queryString = query.element?.lowercased() ?? ""
-                if queryString.count > 2 {
-                    self.tableView.delegate = nil
-                    self.tableView.dataSource = nil
-                    vm.fetchUsersViewModel(query: query.element?.lowercased() ?? "").observe(on: MainScheduler.instance).bind(to: self.tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
-                        cell.user = viewmodel.user
-                    }.disposed(by: disposeBag)
-                }
-                
-                
-            }.disposed(by: disposeBag)
+        searchBar.delegate = self
     }
     
     
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let vm = viewModel else {return}
+        let queryString = searchBar.text?.lowercased() ?? ""
+        if queryString.count > 2 {
+            self.tableView.delegate = nil
+            self.tableView.dataSource = nil
+            vm.fetchUsersViewModel(query: queryString).observe(on: MainScheduler.instance).bind(to: self.tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
+                cell.user = viewmodel.user
+            }.disposed(by: disposeBag)
+        }
+    }
 }
 
