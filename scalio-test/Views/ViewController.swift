@@ -35,6 +35,13 @@ class ViewController: UIViewController {
     private func configureTableView() {
         registerCell()
         tableView.rowHeight = 90
+        viewModel.userItems.bind(
+                to: tableView.rx.items(
+                        cellIdentifier: UserTableViewCell.Identifier,
+                        cellType: UserTableViewCell.self)
+                    ) { row, item, cell in
+                        cell.user = item.user
+                    }.disposed(by: disposeBag)
         
     }
     
@@ -54,11 +61,7 @@ extension ViewController: UISearchBarDelegate {
         guard let vm = viewModel else {return}
         let queryString = searchBar.text?.lowercased() ?? ""
         if queryString.count > 2 {
-            self.tableView.delegate = nil
-            self.tableView.dataSource = nil
-            vm.fetchUsersViewModel(query: queryString).observe(on: MainScheduler.instance).bind(to: self.tableView.rx.items(cellIdentifier: UserTableViewCell.Identifier, cellType: UserTableViewCell.self)) { index, viewmodel, cell in
-                cell.user = viewmodel.user
-            }.disposed(by: disposeBag)
+            vm.fetchUsersViewModel(query: queryString)
         }
     }
 }

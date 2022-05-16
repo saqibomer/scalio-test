@@ -9,23 +9,34 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol UsersViewModelOutput {
+    var userItems: PublishSubject<[UserListItemViewModel]> {get}
+}
 
-final class UsersViewModel {
+final class UsersViewModel: UsersViewModelOutput {
     
     private let userService: UserServiceProtocol
+    private let disposeBag = DisposeBag()
+    var userItems: PublishSubject<[UserListItemViewModel]>
     
     init(userService: UserServiceProtocol = UserService()) {
         self.userService = userService
+        self.userItems = PublishSubject<[UserListItemViewModel]>()
     }
     
-    func fetchUsersViewModel(query: String) -> Observable<[UserListItemViewModel]> {
+    func fetchUsersViewModel(query: String) {
         
-        return userService.getUsers(searchString: query)
-            .map { $0.users.map {
-                UserListItemViewModel(user: $0)
-                
+        userService.getUsers(searchString: query)
+            .subscribe { response in
+                let users = response.users.map {
+                    UserListItemViewModel(user: $0)
                 }
-            }
+                self.userItems.onNext(users)
+            } onError: { error in
+                print(error.localizedDescription)
+            } onCompleted: {
+                
+            }.disposed(by: disposeBag)
         
     }
     

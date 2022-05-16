@@ -30,14 +30,10 @@ class UsersViewModelTest: XCTestCase {
     }
     
     func testBinders() {
-        
-        let mock = UsersViewModelMock()
-        mock.fetchedUsers = .success(mock.mockedData)
-        scheduler = TestScheduler(initialClock: 0, resolution: 0.01)
 
         viewModel = UsersViewModel()
         
-        viewModel.fetchUsersViewModel(query: "saqib").subscribe { response in
+        viewModel.userItems.subscribe { response in
             let status: Bool
             if response.element?.first?.user.login != nil {
                 status = true
@@ -47,5 +43,7 @@ class UsersViewModelTest: XCTestCase {
  
             XCTAssertTrue(status)
         }.disposed(by: disposeBag)
+        
+        viewModel.fetchUsersViewModel(query: "saqib")
     }
 }
